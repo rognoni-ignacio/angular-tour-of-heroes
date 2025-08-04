@@ -1,0 +1,12 @@
+.detail-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+ }
+
+.close-button {
+   background: none;
+   border: none;
+   font-size: 1.5rem;
+   cursor: pointer;
+ }

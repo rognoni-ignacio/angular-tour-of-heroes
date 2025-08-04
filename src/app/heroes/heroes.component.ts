@@ -14,9 +14,14 @@ import { Observable } from 'rxjs';
 export class HeroesComponent {
   private readonly heroService = inject(HeroService);
   heroes$: Observable<Hero[]> = this.heroService.getHeroes();
+  // When set, layout shifts to show responsive detail panel
   selectedHero?: Hero;
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+  }
+
+  onCloseDetail(): void {
+    this.selectedHero = undefined;
   }
 }

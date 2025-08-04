@@ -1,11 +1,19 @@
-<h2>My Heroes</h2>
-<ul class="heroes">
-  @for (hero of heroes$ | async; track hero.id) {
-    <li
-      [class.selected]="hero === selectedHero"
-      (click)="onSelect(hero)">
-      <span class="badge">{{ hero.id }}</span> {{ hero.name }}
-    </li>
-  }
-</ul>
-<app-hero-detail [hero]="selectedHero" />
+<!-- Container sets up responsive list/detail layout -->
+<div class="heroes-container" [class.show-detail]="selectedHero">
+  <div class="heroes-list">
+    <h2>My Heroes</h2>
+    <ul class="heroes">
+      @for (hero of heroes$ | async; track hero.id) {
+        <li
+          [class.selected]="hero === selectedHero"
+          (click)="onSelect(hero)">
+          <span class="badge">{{ hero.id }}</span> {{ hero.name }}
+        </li>
+      }
+    </ul>
+  </div>
+  <!-- Detail panel slides in from right on wider screens -->
+  <div class="hero-detail-panel" [class.open]="selectedHero">
+    <app-hero-detail [hero]="selectedHero" (close)="onCloseDetail()" />
+  </div>
+</div>
