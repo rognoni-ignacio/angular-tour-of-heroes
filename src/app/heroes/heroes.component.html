@@ -1,11 +1,17 @@
-<h2>My Heroes</h2>
-<ul class="heroes">
-  @for (hero of heroes$ | async; track hero.id) {
-    <li
-      [class.selected]="hero === selectedHero"
-      (click)="onSelect(hero)">
-      <span class="badge">{{ hero.id }}</span> {{ hero.name }}
-    </li>
-  }
-</ul>
-<app-hero-detail [hero]="selectedHero" />
+<div class="heroes-container" [class.show-detail]="selectedHero">
+  <div class="heroes-list">
+    <h2>My Heroes</h2>
+    <ul class="heroes">
+      @for (hero of heroes$ | async; track hero.id) {
+        <li
+          [class.selected]="hero === selectedHero"
+          (click)="onSelect(hero)">
+          <span class="badge">{{ hero.id }}</span> {{ hero.name }}
+        </li>
+      }
+    </ul>
+  </div>
+  <div class="hero-detail-panel" [class.open]="selectedHero">
+    <app-hero-detail [hero]="selectedHero" (close)="onCloseDetail()" />
+  </div>
+</div>
