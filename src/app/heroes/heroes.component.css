@@ -52,6 +52,7 @@
    border-radius: 4px 0 0 4px;
  }
 
+/* Mobile-first detail panel covers full width */
 .hero-detail-panel {
    position: fixed;
    top: 0;
@@ -66,10 +67,12 @@
    padding: 1rem;
  }
 
+
 .hero-detail-panel.open {
    transform: translateX(0);
  }
 
+/* Desktop breakpoint for side-by-side layout */
  @media (min-width: 600px) {
    .hero-detail-panel {
      width: 40%;

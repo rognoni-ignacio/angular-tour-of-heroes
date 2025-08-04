@@ -1,3 +1,4 @@
+<!-- Container sets up responsive list/detail layout -->
 <div class="heroes-container" [class.show-detail]="selectedHero">
   <div class="heroes-list">
     <h2>My Heroes</h2>
@@ -11,6 +12,7 @@
       }
     </ul>
   </div>
+  <!-- Detail panel slides in from right on wider screens -->
   <div class="hero-detail-panel" [class.open]="selectedHero">
     <app-hero-detail [hero]="selectedHero" (close)="onCloseDetail()" />
   </div>
