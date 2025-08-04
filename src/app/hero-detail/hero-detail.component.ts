@@ -1,18 +1,16 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { Hero } from '../hero';
 
 @Component({
   selector: 'app-hero-detail',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './hero-detail.component.html',
   styleUrls: ['./hero-detail.component.css']
 })
-export class HeroDetailComponent implements OnInit {
+export class HeroDetailComponent {
   @Input() hero: Hero;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }

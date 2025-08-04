@@ -8,7 +8,7 @@ describe('HeroDetailComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeroDetailComponent ]
+      imports: [ HeroDetailComponent ]
     })
     .compileComponents();
   }));
