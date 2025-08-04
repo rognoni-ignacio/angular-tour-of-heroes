@@ -1,6 +1,6 @@
 # Angular Tour of Heroes
 
-This sample application demonstrates the Angular "Tour of Heroes" tutorial using Angular CLI 17.3.17 and Angular 17.3.12. It showcases the use of standalone components and the HttpClient to load hero data.
+This sample application demonstrates the Angular "Tour of Heroes" tutorial using Angular CLI 20.1.4 and Angular 20.1.4. It showcases the use of standalone components and the HttpClient to load hero data.
 
 ## Features
 - Display a list of mock heroes from `assets/mock-heroes.json`.
