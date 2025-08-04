@@ -1,17 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'app-heroes',
+  standalone: true,
+  imports: [CommonModule, HeroDetailComponent],
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
   selectedHero: Hero;
-
-  constructor(private heroService: HeroService) { }
+  private heroService = inject(HeroService);
 
   ngOnInit() {
     this.getHeroes();
