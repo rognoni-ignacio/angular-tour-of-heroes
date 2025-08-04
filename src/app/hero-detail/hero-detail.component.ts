@@ -6,7 +6,6 @@ import { Hero } from '../hero';
 
 @Component({
   selector: 'app-hero-detail',
-  standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './hero-detail.component.html',
   styleUrls: ['./hero-detail.component.css'],

@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-heroes',
-  standalone: true,
   imports: [CommonModule, HeroDetailComponent],
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.css'],
