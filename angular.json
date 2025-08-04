@@ -56,7 +56,7 @@
               "buildOptimizer": true
             }
           },
-          "defaultConfiguration": ""
+            "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -134,5 +134,8 @@
       }
     }
   },
-  "defaultProject": "angular-tour-of-heroes"
+  "defaultProject": "angular-tour-of-heroes",
+  "cli": {
+    "analytics": false
+  }
 }
