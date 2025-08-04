@@ -5,8 +5,8 @@ import { Hero } from './hero';
 
 @Injectable({ providedIn: 'root' })
 export class HeroService {
-  private heroesUrl = 'assets/mock-heroes.json';
-  private http = inject(HttpClient);
+  private readonly heroesUrl = 'assets/mock-heroes.json';
+  private readonly http = inject(HttpClient);
 
   getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl);
