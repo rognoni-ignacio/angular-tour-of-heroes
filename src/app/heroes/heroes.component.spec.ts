@@ -38,7 +38,10 @@ describe('HeroesComponent', () => {
   });
 
   it('should display detail panel when a hero is selected', () => {
-    component.onSelect(heroesMock[0]);
+    const heroItems: NodeListOf<HTMLLIElement> =
+      fixture.nativeElement.querySelectorAll('.heroes li');
+
+    heroItems[0].click();
     fixture.detectChanges();
 
     const container: HTMLElement = fixture.nativeElement.querySelector('.heroes-container');
@@ -50,7 +53,10 @@ describe('HeroesComponent', () => {
   });
 
   it('should close detail panel and reset selected hero when close is clicked', () => {
-    component.onSelect(heroesMock[0]);
+    const heroItems: NodeListOf<HTMLLIElement> =
+      fixture.nativeElement.querySelectorAll('.heroes li');
+
+    heroItems[0].click();
     fixture.detectChanges();
 
     const closeButton: HTMLButtonElement = fixture.nativeElement.querySelector('.close-button');
@@ -65,4 +71,3 @@ describe('HeroesComponent', () => {
     expect(detailPanel.classList).not.toContain('open');
   });
 });
-
