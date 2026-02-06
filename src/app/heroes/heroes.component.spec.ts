@@ -39,35 +39,33 @@ describe('HeroesComponent', () => {
 
   it('should display detail panel when a hero is selected', () => {
     const heroItems: NodeListOf<HTMLLIElement> =
-      fixture.nativeElement.querySelectorAll('.heroes li');
+      fixture.nativeElement.querySelectorAll('[data-testid="hero-item"]');
 
     heroItems[0].click();
     fixture.detectChanges();
 
-    const container: HTMLElement = fixture.nativeElement.querySelector('.heroes-container');
-    const detailPanel: HTMLElement = fixture.nativeElement.querySelector('.hero-detail-panel');
+    const detailPanel: HTMLElement = fixture.nativeElement.querySelector('[data-testid="hero-detail-panel"]');
 
-    expect(container.classList).toContain('show-detail');
-    expect(detailPanel.classList).toContain('open');
+    expect(component.selectedHero).toEqual(heroesMock[0]);
+    expect(detailPanel.classList).toContain('translate-x-0');
     expect(detailPanel.textContent).toContain('HEROONE');
   });
 
   it('should close detail panel and reset selected hero when close is clicked', () => {
     const heroItems: NodeListOf<HTMLLIElement> =
-      fixture.nativeElement.querySelectorAll('.heroes li');
+      fixture.nativeElement.querySelectorAll('[data-testid="hero-item"]');
 
     heroItems[0].click();
     fixture.detectChanges();
 
-    const closeButton: HTMLButtonElement = fixture.nativeElement.querySelector('.close-button');
+    const closeButton: HTMLButtonElement =
+      fixture.nativeElement.querySelector('[data-testid="close-detail-button"]');
     closeButton.click();
     fixture.detectChanges();
 
-    const container: HTMLElement = fixture.nativeElement.querySelector('.heroes-container');
-    const detailPanel: HTMLElement = fixture.nativeElement.querySelector('.hero-detail-panel');
+    const detailPanel: HTMLElement = fixture.nativeElement.querySelector('[data-testid="hero-detail-panel"]');
 
     expect(component.selectedHero).toBeUndefined();
-    expect(container.classList).not.toContain('show-detail');
-    expect(detailPanel.classList).not.toContain('open');
+    expect(detailPanel.classList).toContain('translate-x-full');
   });
 });
