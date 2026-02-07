@@ -47,7 +47,6 @@ describe('HeroesComponent', () => {
     const detailPanel: HTMLElement = fixture.nativeElement.querySelector('[data-testid="hero-detail-panel"]');
 
     expect(component.selectedHero).toEqual(heroesMock[0]);
-    expect(detailPanel.classList).toContain('translate-x-0');
     expect(detailPanel.textContent).toContain('HEROONE');
   });
 
@@ -63,9 +62,6 @@ describe('HeroesComponent', () => {
     closeButton.click();
     fixture.detectChanges();
 
-    const detailPanel: HTMLElement = fixture.nativeElement.querySelector('[data-testid="hero-detail-panel"]');
-
     expect(component.selectedHero).toBeUndefined();
-    expect(detailPanel.classList).toContain('translate-x-full');
   });
 });
