@@ -10,6 +10,6 @@ if (environment.production) {
 }
 
 bootstrapApplication(AppComponent, {
-  providers: [provideZoneChangeDetection(),provideHttpClient()]
+  providers: [provideZoneChangeDetection(), provideHttpClient()]
 }).catch(err => console.error(err));
 

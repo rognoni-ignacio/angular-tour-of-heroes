@@ -1,17 +1,16 @@
-<div class="relative" data-testid="heroes-container">
-  <div
-    class="p-4 transition-[margin] duration-300 ease-in-out"
-    [ngClass]="selectedHero ? 'sm:mr-[40%]' : ''">
+<div class="flex flex-col gap-4 p-4 sm:flex-row" data-testid="heroes-container">
+  <div class="flex-1">
     <h2 class="mb-4 text-2xl font-semibold text-slate-700">My Heroes</h2>
-    <ul class="m-0 list-none p-0">
+    <ul class="space-y-2">
       @for (hero of heroes$ | async; track hero.id) {
         <li
-          class="relative my-2 flex cursor-pointer items-center rounded-md bg-slate-200 py-1 text-slate-800 transition-all duration-150 hover:left-0.5 hover:bg-slate-300 hover:text-slate-600"
-          [ngClass]="hero === selectedHero ? 'bg-slate-300 text-white hover:bg-slate-300 hover:text-white' : ''"
+          class="flex cursor-pointer items-center rounded-md py-2"
+          [ngClass]="hero === selectedHero
+            ? 'bg-slate-300 text-white'
+            : 'bg-slate-200 text-slate-800 hover:bg-slate-300'"
           (click)="onSelect(hero)"
           data-testid="hero-item">
-          <span
-            class="mr-4 inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-[linear-gradient(135deg,#1976d2_60%,#42a5f5_100%)] text-sm font-bold text-white shadow-sm transition-all duration-200 hover:bg-[linear-gradient(135deg,#1565c0_60%,#64b5f6_100%)]">
+          <span class="mx-3 flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
             {{ hero.id }}
           </span>
           {{ hero.name }}
@@ -19,10 +18,11 @@
       }
     </ul>
   </div>
-  <div
-    class="fixed inset-y-0 right-0 z-50 h-screen w-screen max-w-[420px] overflow-y-auto bg-slate-50 px-5 py-6 shadow-2xl transition-transform duration-300 ease-[cubic-bezier(.4,0,.2,1)] sm:w-[40%] sm:rounded-l-2xl"
-    [ngClass]="selectedHero ? 'translate-x-0' : 'translate-x-full'"
-    data-testid="hero-detail-panel">
-    <app-hero-detail [hero]="selectedHero" (close)="onCloseDetail()" />
-  </div>
+  @if (selectedHero) {
+    <div
+      class="rounded-xl bg-slate-50 p-5 shadow-lg sm:w-2/5"
+      data-testid="hero-detail-panel">
+      <app-hero-detail [hero]="selectedHero" (close)="onCloseDetail()" />
+    </div>
+  }
 </div>
