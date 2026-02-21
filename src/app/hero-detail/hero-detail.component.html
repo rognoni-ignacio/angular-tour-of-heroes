@@ -1,12 +1,20 @@
 @if (hero) {
-  <div class="detail-header">
-    <h2>{{ hero.name | uppercase }} Details</h2>
-    <button type="button" class="close-button" (click)="close.emit()">×</button>
-  </div>
-  <div><span>id: </span>{{ hero.id }}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="hero.name" placeholder="name" />
-    </label>
-  </div>
+<div class="mb-4 flex items-center justify-between">
+  <h2 class="text-2xl font-semibold text-slate-700">
+    {{ hero.name | uppercase }} Details
+  </h2>
+  <button type="button"
+    class="inline-flex h-9 w-9 items-center justify-center rounded-full text-2xl leading-none text-slate-500 transition-colors hover:bg-slate-200 hover:text-slate-800"
+    (click)="close.emit()" aria-label="Close details" data-testid="close-detail-button">
+    ×
+  </button>
+</div>
+<div class="mb-3 text-slate-700">
+  <span class="font-semibold">id:</span> {{ hero.id }}
+</div>
+<label class="flex flex-col gap-2 text-sm font-medium text-slate-600">
+  name:
+  <input [(ngModel)]="hero.name" placeholder="name"
+    class="w-full rounded-md border border-slate-300 px-3 py-2 text-base text-slate-800 transition-colors outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200" />
+</label>
 }

@@ -16,10 +16,32 @@ describe('HeroDetailComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(HeroDetailComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
+    fixture.detectChanges();
     expect(component).toBeTruthy();
+  });
+
+  it('should display hero details when hero is provided', () => {
+    component.hero = { id: 42, name: 'TestHero' };
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement;
+    expect(compiled.textContent).toContain('TESTHERO Details');
+    expect(compiled.textContent).toContain('42');
+  });
+
+  it('should emit close event when close button is clicked', () => {
+    component.hero = { id: 1, name: 'Hero' };
+    fixture.detectChanges();
+
+    spyOn(component.close, 'emit');
+
+    const closeButton: HTMLButtonElement =
+      fixture.nativeElement.querySelector('[data-testid="close-detail-button"]');
+    closeButton.click();
+
+    expect(component.close.emit).toHaveBeenCalled();
   });
 });

@@ -9,7 +9,6 @@ import { Observable } from 'rxjs';
   selector: 'app-heroes',
   imports: [CommonModule, HeroDetailComponent],
   templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.css'],
 })
 export class HeroesComponent {
   private readonly heroService = inject(HeroService);

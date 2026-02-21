@@ -8,7 +8,6 @@ import { Hero } from '../hero';
   selector: 'app-hero-detail',
   imports: [CommonModule, FormsModule],
   templateUrl: './hero-detail.component.html',
-  styleUrls: ['./hero-detail.component.css'],
 })
 export class HeroDetailComponent {
   @Input() hero?: Hero;
