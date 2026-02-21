@@ -5,7 +5,7 @@
       @for (hero of heroes$ | async; track hero.id) {
       <li class="flex cursor-pointer items-center rounded-md py-2" [ngClass]="
             hero === selectedHero
-              ? 'bg-slate-300 text-white'
+              ? 'bg-sky-600 text-white'
               : 'bg-slate-200 text-slate-800 hover:bg-slate-300'
           " (click)="onSelect(hero)" data-testid="hero-item">
         <span
