@@ -1,0 +1,13 @@
+<section class="rounded-xl bg-white p-6 shadow-sm">
+  <h2 class="mb-3 text-2xl font-semibold text-slate-700">About This Project</h2>
+  <p class="mb-4 text-slate-600">
+    Tour of Heroes is a learning project that showcases common Angular patterns through a simple hero roster app.
+  </p>
+
+  <h3 class="mb-2 text-lg font-semibold text-slate-700">Project Details</h3>
+  <ul class="list-inside list-disc space-y-2 text-slate-600">
+    @for (highlight of projectHighlights; track highlight) {
+    <li>{{ highlight }}</li>
+    }
+  </ul>
+</section>
